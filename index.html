@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Infinite Lights | Demo 1 | Codrops</title>
+		<meta name="description" content="A Three.js powered animation that resembles the nightly view of fast cars on a road." />
+		<meta name="keywords" content="webgl, three.js, cars, road, highway, lights, speed, web development, demo, javascript" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.png">
+		<link rel="stylesheet" href="https://use.typekit.net/uok8swb.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script>
+		document.documentElement.className = "js";
+		var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+		supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+		</script>
+	</head>
+	<body>
+		<main>
+			<div class="frame">
+				<div class="frame__title-wrap">
+					<h1 class="frame__title"><a href="#">SAE-AKGEC</a></h1>
+					<div class="frame__links">
+						<a href="https://tympanus.net/Development/webGLImageTransitions/">Contact Us</a>
+						<a href="https://tympanus.net/codrops/?p=44516">Team</a>
+						<a href="https://github.com/Anemolo/InfiniteLights">Events</a>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<div id="app"></div>
+					<div class="content__title-wrap">
+						<h2 class="content__title">Setting The Global Standard <br> In Automotive World</h2>
+					</div>
+				</div>
+		</main>
+		<script src="js/three.min.js"></script>
+		<script src="js/postprocessing.min.js"></script>
+		<script src="js/InfiniteLights.js"></script>
+		<script src="js/Distortions.js"></script>
+		<script>
+		(function() {
+
+			const container = document.getElementById('app');
+
+			const options = {
+				onSpeedUp: (ev) => {					
+				},
+				onSlowDown: (ev) => {
+				},
+				// mountainDistortion || LongRaceDistortion || xyDistortion || turbulentDistortion || turbulentDistortionStill || deepDistortionStill || deepDistortion
+				distortion: mountainDistortion, 
+				
+				length: 400,
+				roadWidth: 9,
+				islandWidth: 2,
+				lanesPerRoad: 3,
+
+				fov: 90,
+				fovSpeedUp: 150,
+				speedUp: 2,
+				carLightsFade: 0.4,
+
+				totalSideLightSticks: 50,
+				lightPairsPerRoadWay: 50,
+
+				// Percentage of the lane's width
+				shoulderLinesWidthPercentage: 0.05,
+				brokenLinesWidthPercentage: 0.1,
+				brokenLinesLengthPercentage: 0.5,
+
+				/*** These ones have to be arrays of [min,max].  ***/
+				lightStickWidth: [0.12, 0.5],
+				lightStickHeight: [1.3, 1.7],
+
+				movingAwaySpeed: [60, 80],
+				movingCloserSpeed: [-120, -160],
+
+				/****  Anything below can be either a number or an array of [min,max] ****/
+
+				// Length of the lights. Best to be less than total length
+				carLightsLength: [400 * 0.05, 400 * 0.15],
+				// Radius of the tubes
+				carLightsRadius: [0.05, 0.14],
+				// Width is percentage of a lane. Numbers from 0 to 1
+				carWidthPercentage: [0.3, 0.5],
+				// How drunk the driver is.
+				// carWidthPercentage's max + carShiftX's max -> Cannot go over 1. 
+				// Or cars start going into other lanes 
+				carShiftX: [-0.2, 0.2],
+				// Self Explanatory
+				carFloorSeparation: [0.05, 1],
+
+				colors: {
+					roadColor: 0x080808,
+					islandColor: 0x0a0a0a,
+					background: 0x000,
+					shoulderLines: 0x131318,
+					brokenLines: 0x131318,
+					/***  Only these colors can be an array ***/
+					leftCars: [0xff102a, 0xEB383E, 0xff102a],
+					rightCars: [0xdadafa, 0xBEBAE3, 0x8F97E4],
+					sticks: 0xdadafa,
+				}
+			};
+
+			const myApp = new App(container, options);
+			myApp.loadAssets().then(myApp.init)
+		})()
+		</script>
+
+		<!-- Events Section -->
+
+		<div class="container event Mont_font">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 justify-content-center p-5 event_text">
+					<h1 class="pb-4">Events</h1>
+					<p>SAE-AKGEC takes parts in various competitions throughout India conducted by SAE INDIA and various other organization. Students of society work hard for these competitions throughout the year. They are guided by the faculty advisor and other teaching staff in these competitions. The only objective of student is to learn and win in these competions.</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 ">
+					<div class="row event_count ">
+						<div class="col-12 d-flex justify-content-center p-5"><h1 class="px-4">250+</h1><p class="m-4" >Students</p></div>
+					</div>
+					<div class="row event_count ">
+						<div class="col-12 d-flex justify-content-center p-5"><h1 class=" px-4">10+</h1><p class="m-4">Contents</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- Event Cards -->
+		<div class="container Mont_font">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center p-2">
+					<div class="event_card">
+						<h1 style="text-align: center;" class="p-3">E-Bike</h1>
+						<p class="pl-4 pr-4"> Imagine To Innovate Asia E-bike Challenge is an eco-friendly venture based upon Engineering design and manufacturing of electric bike completely by the students. </p>
+					
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center p-2">
+					<div class="event_card">
+						<h1 style="text-align: center;" class="p-3">Supra</h1>
+						<p class="pl-4 pr-4">Supra conceptualizing and developing a formula racing car. Guided by a standard rule book, the Formula Supra requires teams to build a single-seat race vehicle, using an engine having a maximum capacity of 610cc.</p>
+					
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center p-2">
+					<div class="event_card">
+						<h1 style="text-align: center;" class="p-3">Efficycle</h1>
+						<p class="pl-4 pr-4"> EFFI-CYCLE providing opportunity to the students to conceive, design and fabricate a three-wheel configuration vehicle powered by human-electric hybrid power and capable of seating two passengers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- The About Section -->
+			
+		<div class="container Mont_font">
+			<div class="row">
+				<div class="col-lg-6 col-sm-12 d-flex justify-content-center logo mt-5 pt-5"> 
+					<img src="./images/logo.png" alt="Logo">
+				</div>
+				<div class="col-lg-6 col-sm-12 content">
+					<div class="event_card"></div>
+					<h1 class="p-2">About</h1>
+					<p class="px-2">SAE INDIA Founded in 1994, is an affiliate society of SAE International, registered as an Indian non-profit engineering and scientific society dedicated to the advancement of mobility community in India. As an individual member driven society of mobility practitioners, SAE INDIA comprises members who are individuals from the mobility community, which includes engineers and executives. Principal emphasis is placed on transport industries such as automotive, aerospace, and commercial vehicles. SAE India holds a variety of competitions every year for engineering students across the country.
+						SAE-AKGEC is student chapter of SAE INDIA formed by student of Akgec. Prime objective of SAE-AKGEC is to enhance skills of students in field automobiles and set new benchmarks in world of automobiles</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Workshop Section -->
+		<div class="black">
+			<div class="container Mont_font">
+				<div class="row d-flex justify-content-center">
+					<div class="col-lg-6 col-sm-12">
+						<h1 class="p-4">Workshops</h1>
+						<p>
+							SAE-AKGEC takes parts in various competitions throughout India conducted by SAE INDIA and various other organization. Students of society work hard for these competitions throughout the year. They are guided by the faculty advisor and other teaching staff in these competitions. The only objective of student is to learn and win in these competions.
+						</p>
+					</div>
+				</div>
+				<div class="row py-5">
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center pb-4">
+						<div class="workshop_card">
+							<h1 class="p-3">Innovacion</h1>
+							<p class="px-4">SAE-AKGEC takes parts in various competitions throughout India conducted by SAE INDIA and various other organization. Students of society work hard for these competitions throughout the year.</p>
+						</div>
+						</div>
+					<div class="col-lg-6 col-sm-12 d-flex justify-content-center pb-4">
+						<div class="workshop_card">
+							<h1 class="p-3">Aacar</h1>
+							<p class="px-4">SAE-AKGEC takes parts in various competitions throughout India conducted by SAE INDIA and various other organization. Students of society work hard for these competitions throughout the year.</p>
+						</div>
+					</div>
+				</div>
+				<hr color="white">
+			</div>
+		</div>
+
+		<!-- Blogs Section -->
+
+		<!-- Footer -->
+		<div class="black">
+			<div class="container Mont_font">
+				<div class="row">
+					<div class="col-lg-4 col-sm-12 d-flex justify-content-center"><img class="Footer_Image" src="./images/logo.png"></div>
+					<div class="col-lg-4 col-sm-12 py-4 Footer_Text">
+						<h1>Contact Info</h1>
+						<p>27th KM Milestone, Delhi - Meerut Expy,<br> 
+							Ghaziabad, Uttar Pradesh 201009, India<br>
+							Phone : +91 70713446841<br>
+							Email : saeakgec.event@gmail.com</p>
+					</div>
+					<div class="col-lg-4 col-sm-12 py-4 Footer_Text">
+						<h1>Newsletter</h1>
+						<p>To get latest news related to SAE-AKGEC.<br>Get subscribed to our newsletter</p>
+						<input placeholder="email"><button>></button>
+					</div>
+				</div>
+				<hr color="white">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 py-1 Footer_Text">
+						<p>Copyright © 2020 All rights reserved | This Website is made by TEAM SAE</p>
+					</div>
+					<div class="col-lg-6 col-sm-12 py-1Footer_Text d-flex justify-content-end">
+						<a href="#"><img src="./images/Vector-1.png" style="opacity: 0.8; height: 25px; margin-right: 30px;"></a>
+						<a href="#"><img src="./images/Vector.png" style="opacity: 0.8; height: 25px;"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

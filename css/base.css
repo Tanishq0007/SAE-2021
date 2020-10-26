@@ -1,0 +1,301 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+:root {
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+	--color-text: #E8E9EB;
+	--color-bg: #000000;
+	--color-link: #5a5a5a;
+	--color-link-hover:#F09D51;
+	--color-alt: #3ba2e5;
+	--color-info: #e93f3b;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: ltc-bodoni-175, serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1) rotate3d(0,0,1,180deg);
+		border-radius: 50%;
+	}
+}
+
+.Mont_font {
+	font-family: 'Montserrat', sans-serif;
+}
+
+a {
+	text-decoration: none !important;
+	color: var(--color-link) !important;
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--color-link-hover) !important;
+	outline: none;
+}
+
+
+.frame {
+	padding: 2rem 4vw;
+	text-align: left;
+	position: relative;
+	z-index: 1000;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.frame__title {
+	font-size: 1.4rem;
+	margin: 0 0 1rem;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+.frame__links {
+	display: inline;
+}
+
+.frame__links a {
+	display: block;
+	margin: 0 1rem 0.5rem;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 20%;
+	position: relative;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.content__title-wrap {
+	position: relative;
+	text-align: center;
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.content__pretitle {
+	color: var(--color-alt);
+	font-size: 1.35rem;
+}
+
+.content__title {
+	font-size: 3.2vw;
+	font-weight: normal;
+	margin: 0.5rem 0 1.5rem;
+	font-family: azo-sans-uber, sans-serif;
+	overflow: hidden;
+	color: var(--color-text);
+}
+
+
+#app {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	display: none;
+}
+
+canvas {
+	width: 100%;
+	height: 100%;
+}
+
+.event_count h1 {
+	font-size: 4em;
+	overflow: hidden;
+}
+
+.event_count p {
+	font-weight: 500;
+}
+
+.event_text {
+	text-align: justify;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.event_text h1{
+	text-align: center;
+	font-weight: bold;
+}
+
+.event_card{
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 2%;
+	width: 80%;
+}
+
+.event_card p {
+	color: grey;
+	text-align: justify;
+}
+
+.event_card:hover {
+	box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logo {
+	height: 100%;
+	width: auto;
+}
+
+.content h1 {
+	overflow: hidden;
+	text-align: center;
+}
+
+.content p {
+	text-align: justify;
+	color: var(--color-link);
+}
+
+.black{
+	background-color: rgb(0, 0, 0);
+}
+
+.black h1{
+	color: whitesmoke;
+	text-align: center;
+	overflow: hidden;
+}
+
+.black p{
+	color: var(--color-text);
+	text-align: justify;
+}
+
+.workshop_card {
+	background-color: rgba(20, 20, 20, 1);
+	box-shadow: 0 2px 4px rgba(25, 25, 25, 1);
+	border-radius: 2%;
+	width: 70%;
+}
+
+.workshop_card:hover {
+	box-shadow:  0 4px 8px rgba(25, 25, 25, 1);
+}
+
+.Footer_Image {
+	width: 80%;
+}
+.Footer_Text h1{
+	font-size: 2rem;
+	text-align: left;
+
+}
+.Footer_Text p{
+	font-size: 0.8rem;
+	text-align: left;
+	opacity: 0.8;
+}
+.Footer_Text input{
+	background-color: transparent;
+	border-top: none;
+	border-bottom: 1px solid white;
+	border-left: none;
+	border-right: none;
+}
+.Footer_Text input:focus {
+	background-color: transparent;
+	border-top: none;
+	border-bottom: 1px solid white;
+	border-left: none;
+	border-right: none;
+}
+.Footer_Text button {
+	position: absolute;
+	left: 230px;
+	background-color: transparent;
+	color: white;
+	border: none;
+}
+
+@media screen and (min-width: 40em) {
+	#app {
+		display: block;
+	}
+	.frame {
+		position: fixed;
+		text-align: center;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		display: grid;
+		align-content: space-between;
+		width: 100%;
+		max-width: none;
+		height: 100vh;
+		padding: 2.5rem 4.5rem;
+		pointer-events: none;
+		
+	}
+	.frame__title-wrap {
+		display: flex;
+	}
+	.frame__title {
+		margin: 0 7vw 0 0;
+		text-align: left;
+	}
+	.frame__links a {
+		display: flex;
+		float: right;
+		text-align: right;
+	}
+	.frame a {
+		pointer-events: auto;
+	}
+	.content {
+		height: 100vh;
+		justify-content: center;
+		
+	}
+}
